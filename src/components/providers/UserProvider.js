@@ -4,7 +4,12 @@ export const userContext = createContext(null);
 
 export function UserProvider(props)
 {
-    const [user, set_user] = useState({});
+    /** 
+     * user will contain 
+     * user personal info:
+     * JWT_TOKEN for server authentication and authorization.
+     */
+    const [user, set_user] = useState(null);
     return (
         <userContext.Provider value={{user:user,
                                      set_user:set_user}}

@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)', // put the url for the app Image here.
+    backgroundImage: 'url(https://s3.eu-west-1.amazonaws.com/mundy.assets.d3r.com/images/hero_large/76654-norway-cruise-guide-gudvangen.jpg)', // put the url for the app Image here.
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
