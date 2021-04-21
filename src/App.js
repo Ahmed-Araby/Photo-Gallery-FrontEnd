@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+    <Header />
     <Switch>
       {/** user Is not signed in */}
       {!user && <Route component={SignIn}></Route>}
@@ -23,7 +24,7 @@ function App() {
         <>
           <Route path='/home' component={Home}></Route>
 
-          <Route component={Header}></Route>  {/** in case of no match al all */}
+          <Route component={Home}></Route>  {/** in case of no match al all */}
         </>
       }
     </Switch>

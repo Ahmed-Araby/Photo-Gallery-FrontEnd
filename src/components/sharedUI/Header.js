@@ -38,16 +38,21 @@ export function Header() {
         console.log("do nothing");
         break;
     }
-    
   }, [value])
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+        
+        <Tabs  
+            value={value} 
+            onChange={handleChange} 
+            aria-label="simple tabs example">
           
-          <Tab label="LogOut"/>
+        <Tab label="LogOut"/>
+
         </Tabs>
+
       </AppBar>
     </div>
   );

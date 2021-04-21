@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -31,7 +31,8 @@ const useStyles = makeStyles({
 
 export function AlbumCard({album}) {
   const classes = useStyles();
-  console.log(album);
+  
+
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -48,7 +49,7 @@ export function AlbumCard({album}) {
         </Typography>
 
       </CardContent>
-      
+
       <br></br>
       <br></br>
       <br></br>
