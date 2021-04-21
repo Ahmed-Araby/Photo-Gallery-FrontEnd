@@ -14,7 +14,8 @@ const useStyles = makeStyles({
     minHeight: 200,
     width: window.innerWidth / Albums_per_Row, 
     float:"left", 
-    marginLeft:"50px",
+    marginLeft:"40px",
+    margin:"20px"
   },
   bullet: {
     display: 'inline-block',
@@ -31,7 +32,6 @@ const useStyles = makeStyles({
 
 export function AlbumCard({album}) {
   const classes = useStyles();
-  
 
   return (
     <Card className={classes.root} variant="outlined">

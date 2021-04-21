@@ -7,12 +7,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import {AddAlbumForm} from "../forms/AddAlbumForm";
 import {AlbumCard} from "./AlbumCard";
+
 import {NoAlbums} from "../sharedUI/NoAlbums";
+import {Pagination} from "../sharedUI/Pagination";
+
 import {getArray, build_bearer_token} from "../../utils/utils";
 import {userContext} from "../providers/UserProvider";
 
-
-const albums_endPoint = "http://localhost:3004/album/1/2";
+const albums_endPoint = "http://localhost:3004/album/";
 const fakeAlbum = {
     name:"family Album", 
     description:"All my family Photos "
@@ -22,11 +24,15 @@ export function Home(props)
 {
     const [albums, set_albums] = useState([]);
     const {user, set_user} = useContext(userContext);
-    const [pageNumbber, set_pageNumber] = useState(0);
-    const [albumsPerPage, set_albumsPerPage] = useState(24);
+    const [pageNumber, set_pageNumber] = useState(0);
+    const [albumsPerPage, set_albumsPerPage] = useState(2);
+    const [pageCnt, set_pageCnt] = useState(0);
 
     useEffect(()=>{
-        fetch(albums_endPoint, {
+        set_pageCnt(20);
+    }, [])
+    useEffect(()=>{
+        fetch(albums_endPoint + `${pageNumber}/${albumsPerPage}`, {
             method:"GET",
             headers:{
                 "Authorization":build_bearer_token(user),
@@ -40,25 +46,36 @@ export function Home(props)
             return resp.json()
         })
         .then((data)=>{
+            console.log("albums length is : ", data.albums.length, pageNumber,albumsPerPage)
             set_albums(data.albums);
         })
         .catch((err)=> console.log("error in catching albums : ", err));
 
-    }, [user, pageNumbber, albumsPerPage])
+    }, [user, pageNumber, albumsPerPage])
     
     return  (
         <center>
             <AddAlbumForm />
             <br></br>
             {albums.length > 0 && 
-                albums.map((album)=>{
-                return <AlbumCard album={fakeAlbum}/>
-                })
+                <>
+                    {
+                        albums.map((album, index)=>{
+                        return <AlbumCard key={album.id} album={album}/>
+                        })
+                    }
+                    <br></br>
+                    <Pagination pageNumber={pageNumber}
+                                pageCnt={pageCnt}
+                                onClick={set_pageNumber}
+                    />
+
+                </>
             }
 
             {
-                albums.lenght == 0 && 
-                <NoAlbums user/>
+                albums.length == 0 && 
+                <NoAlbums user={user}/>
             }
         </center>
     )
