@@ -32,11 +32,18 @@ export function Home(props)
                 "Authorization":build_bearer_token(user),
             }
         })
-        .then((resp)=> resp.json())
+        .then((resp)=>{
+            if(!resp.ok || resp.status!=200){
+                throw new Error("Error in fetch response it is not valid");
+                return ;
+            }
+            return resp.json()
+        })
         .then((data)=>{
             set_albums(data.albums);
         })
         .catch((err)=> console.log("error in catching albums : ", err));
+
     }, [user, pageNumbber, albumsPerPage])
     
     return  (
