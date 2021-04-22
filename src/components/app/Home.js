@@ -25,7 +25,7 @@ export function Home(props)
     const [albums, set_albums] = useState([]);
     const {user, set_user} = useContext(userContext);
     const [pageNumber, set_pageNumber] = useState(0);
-    const [albumsPerPage, set_albumsPerPage] = useState("asa");
+    const [albumsPerPage, set_albumsPerPage] = useState(4);
     const [pageCnt, set_pageCnt] = useState(0);
 
     useEffect(()=>{
