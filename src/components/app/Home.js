@@ -25,7 +25,7 @@ export function Home(props)
     const [albums, set_albums] = useState([]);
     const {user, set_user} = useContext(userContext);
     const [pageNumber, set_pageNumber] = useState(0);
-    const [albumsPerPage, set_albumsPerPage] = useState(2);
+    const [albumsPerPage, set_albumsPerPage] = useState("asa");
     const [pageCnt, set_pageCnt] = useState(0);
 
     useEffect(()=>{
@@ -40,6 +40,7 @@ export function Home(props)
         })
         .then((resp)=>{
             if(!resp.ok || resp.status!=200){
+                /** how to get the error message ??? */
                 throw new Error("Error in fetch response it is not valid");
                 return ;
             }
