@@ -58,7 +58,7 @@ export function Home(props)
             return [newAlbum , ...albums];
         })
     }
-    
+    console.log("user is : ", user);
     return  (
         <center>
             <AddAlbumForm 

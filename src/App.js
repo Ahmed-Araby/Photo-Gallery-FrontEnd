@@ -5,6 +5,7 @@ import {userContext} from "./components/providers/UserProvider";
 import {SignIn} from "./components/auth/SignIn";
 import {Home} from "./components/app/Home";
 import {Header} from "./components/sharedUI/Header";
+import {Images} from "./components/app/Images";
 
 require('dotenv').config()  // how does requrie work here 
 
@@ -15,19 +16,23 @@ function App() {
   return (
     <>
     <Header />
-    <Switch>
+    <>
       {/** user Is not signed in */}
       {!user && <Route component={SignIn}></Route>}
       
+      
       {/** user is signed in */}
-      {
-        <>
-          <Route path='/home' component={Home}></Route>
+      { user &&
+        
+        <Switch>
+            <Route path='/home' component={Home}></Route>
+            <Route path="/images" component={Images}></Route>
 
-          <Route component={Home}></Route>  {/** in case of no match al all */}
-        </>
+            <Route component={Home}></Route>  {/** in case of no match al all */}
+        </Switch>
+        
       }
-    </Switch>
+    </>
 
     
     </>

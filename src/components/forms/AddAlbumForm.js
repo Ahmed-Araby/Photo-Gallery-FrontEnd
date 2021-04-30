@@ -86,7 +86,7 @@
             set_createSuccess(false);
             add_album({
               name, 
-              desc
+              description:desc
             });
           }}
           message={`album ${name} create successfully `}

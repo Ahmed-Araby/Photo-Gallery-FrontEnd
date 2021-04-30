@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useHistory } from 'react-router-dom';
 
 const Albums_per_Row = process.env. REACT_APP_ALBUMS_PER_ROW | 6;
 
@@ -32,7 +33,15 @@ const useStyles = makeStyles({
 
 export function AlbumCard({album}) {
   const classes = useStyles();
-
+  const history = useHistory();
+  const handleOpenClick = (e)=>{
+    history.push({
+      pathname:"/images", 
+      state:{
+        album
+      },
+    })
+  }
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -54,7 +63,10 @@ export function AlbumCard({album}) {
       <br></br>
       <br></br>
       <CardActions>
-        <Button variant="contained" color="primary" href="#contained-buttons">
+        <Button variant="contained"
+                color="primary"
+                href="#contained-buttons"
+                onClick={handleOpenClick}>
             Open
         </Button>
 
