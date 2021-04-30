@@ -53,10 +53,17 @@ export function Home(props)
     }, [user, pageNumber, albumsPerPage])
     
 
+    const add_album = (newAlbum)=>{
+        set_albums((albums)=>{
+            return [newAlbum , ...albums];
+        })
+    }
+    
     return  (
         <center>
-            <AddAlbumForm />
-            <br></br>
+            <AddAlbumForm 
+                add_album={add_album}
+            /> <br></br>
             
             <div className="centerDiv">
                 <Pagination count={pageCnt}
@@ -65,11 +72,7 @@ export function Home(props)
                             set_pageNumber(newPageNum -1);
                         }}
                 />
-             </div>
-
-            <br></br>
-            <br></br>
-            <br></br>
+             </div> <br></br> <br></br> <br></br>
             
             {albums.length > 0 && 
            
@@ -82,6 +85,7 @@ export function Home(props)
                 albums.length == 0 && 
                 <NoAlbums user={user}/>
             }
+
         </center>
     )
 }

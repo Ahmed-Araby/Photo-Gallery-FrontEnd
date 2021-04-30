@@ -24,7 +24,7 @@
  
 
 
- export function AddAlbumForm(props)
+ export function AddAlbumForm({add_album})
  {
     const classes = useStyles();
     const [name, set_name] = useState("");
@@ -82,7 +82,13 @@
         {/** My Snack bars start */}
         <MySnackbar
           open={createSuccess}
-          onClose={()=>{set_createSuccess(false)}}
+          onClose={()=>{
+            set_createSuccess(false);
+            add_album({
+              name, 
+              desc
+            });
+          }}
           message={`album ${name} create successfully `}
           type="success"
           duration={3000}
