@@ -2,7 +2,7 @@ Photo-Gallery app (Like google drive functionality , but only for images) ,     
  
 
 ## To Do
-- [ ] enable user to create album.
+- [X] enable user to create album.
 - [X] display the albums paginated.
 - [ ] enable user upload image into the server.
 - [ ] display images of a specifc album paginated. 
