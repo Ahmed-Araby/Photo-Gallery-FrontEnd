@@ -18,24 +18,18 @@ import {userContext} from "../providers/UserProvider";
 
 export function Images(props)
 {
-    let images = [1, 2, 3, 4]
-    const [images2, set_images] = useState([]);
-    const {user, set_user} = useContext(userContext);
-    const [pageNumber, set_pageNumber] = useState(0);
-    const [imagesPerPage, set_imagesPerPage] = useState(5);
-    const [pageCnt, set_pageCnt] = useState(0);
     const location = useLocation();
-    
+    console.log('here ', location.state);
+    const [age, set_age] = useState(1);
+    const handleClick=()=>{
+        set_age((age)=>{
+            return age+1;
+        });
+    }
     return (
-        <center>
-            <h1>Album X </h1>
-            <br></br>
-            {
-                images.map((img)=>{
-                    return <ImageCard key={img}></ImageCard>
-                })
-            }
-            
-        </center>
+        <>
+        <h1> Images </h1>
+        <button onClick={handleClick}>click</button>
+        </>
     )
 }

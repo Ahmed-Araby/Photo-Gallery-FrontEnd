@@ -65,7 +65,6 @@ export function AlbumCard({album}) {
       <CardActions>
         <Button variant="contained"
                 color="primary"
-                href="#contained-buttons"
                 onClick={handleOpenClick}>
             Open
         </Button>
