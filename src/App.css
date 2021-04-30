@@ -46,3 +46,15 @@
   border-radius: 30px; 
   
 }
+
+
+.centerDiv{
+  width: 800px;
+  border-radius: 5px;
+  background: #ccc;
+  padding: 10px;
+  position: absolute;
+  margin-left: -400px;
+
+  left: 50%;
+}
