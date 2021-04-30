@@ -41,11 +41,7 @@ export function Home(props)
             }
         })
         .then((resp)=>{
-            if(!resp.ok || resp.status!=200){
-                /** how to get the error message ??? */
-                throw new Error("Error in fetch response it is not valid");
-                return ;
-            }
+
             return resp.json()
         })
         .then((data)=>{
