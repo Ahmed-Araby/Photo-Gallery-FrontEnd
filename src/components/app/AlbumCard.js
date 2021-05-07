@@ -36,7 +36,7 @@ export function AlbumCard({album}) {
   const history = useHistory();
   const handleOpenClick = (e)=>{
     history.push({
-      pathname:"/images", 
+      pathname:"/album", 
       state:{
         album
       },
